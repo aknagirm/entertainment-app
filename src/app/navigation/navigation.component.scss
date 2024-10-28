@@ -1,10 +1,10 @@
-@import "../../styles.scss";
+@import '../../assets/variable';
 
 .navigation-container {
-  min-width: $navigation-category-icon-size * 4;
-  min-height: $navigation-category-icon-size * 3;
+  min-width: $navigation-category-icon-size * 2;
+  min-height: $navigation-category-icon-size * 2;
   background-color: $semi-dark-blue;
-  border-radius: $navigation-category-icon-size;
+  border-radius: $navigation-category-icon-size/2;
 
   .logo-container {
     flex: 0 0 30%;
@@ -21,17 +21,16 @@
     flex: 0 0 30%;
     .avatar-image-wrapper {
       width: $navigation-category-icon-size * 2;
-      height: $navigation-category-icon-size  * 2;
+      height: $navigation-category-icon-size * 2;
       border-radius: 50%;
       border: 1px solid $white;
       overflow: hidden;
       background: $white;
       img {
-        width: $navigation-category-icon-size  * 2;
+        width: $navigation-category-icon-size * 2;
       }
     }
   }
-
 }
 
 @media screen and (min-width: 600px) {
@@ -39,4 +38,3 @@
     height: calc(100vh - ($global-gap * 2));
   }
 }
-

@@ -1,21 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import "node_modules/bootstrap/scss/bootstrap";
-
-$red: #fc4747;
-$dark-blue: #10141e;
-$greyish-blue: #5a698f;
-$semi-dark-blue: #161d2f;
-$white: #ffffff;
-
-$global-gap: 32px;
-$navigation-category-container-height: 200px;
-$navigation-category-icon-size: 24px;
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'assets/variable';
 
 body {
-  font-size: 15px;
-  font-family: "Outfit", sans-serif;
+  font-size: $font-size;
+  font-family: 'Outfit', sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;

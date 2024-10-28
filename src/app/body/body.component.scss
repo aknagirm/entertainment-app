@@ -1,0 +1,46 @@
+@import '../../assets/variable';
+
+.body-container {
+  height: calc(100vh - ($global-gap * 2));
+  .search-bar {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    input {
+      background-color: $dark-blue;
+      border: none;
+      font-size: $font-size * 1.2;
+      width: 100%;
+      color: $white;
+    }
+    input:focus {
+      outline: none;
+    }
+    i {
+      font-size: $font-size * 1.2;
+      color: $white;
+    }
+  }
+  .video-list-wrapper {
+    flex: 1 0 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    .card {
+      background-color: $dark-blue;
+      color: $white;
+      .card-footer {
+        p {
+          font-size: $font-size * 1.1;
+        }
+        small {
+          color: $greyish-blue;
+        }
+      }
+    }
+  }
+}
+
+cdk-virtual-scroll-viewport {
+  height: 100%;
+  scrollbar-width: none;
+}
