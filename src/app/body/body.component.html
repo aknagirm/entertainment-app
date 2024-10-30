@@ -14,14 +14,24 @@
       <i class="fa fa-search px-3"></i>
     </span>
   </div>
+
   <div
     class="row justify-content-between video-list-wrapper"
     (scroll)="onScroll($event)"
     #scrollBoard
   >
+    <div *ngIf="selectedVideoId">
+      <iframe
+        [src]="selectedVideoId"
+        height="420"
+        style="width: 100%"
+        frameborder="0"
+      >
+      </iframe>
+    </div>
     <ng-container *ngIf="!errorMessage; else errorTab">
       <ng-container *ngFor="let video of videoList; let i = index">
-        <div class="col-lg-3 col-sm-6 card my-3">
+        <div class="col-lg-3 col-sm-6 card my-3" (click)="playVideo(video)">
           <div class="card-body p-0">
             <img [src]="video.snippet.thumbnails.medium.url" class="w-100" />
           </div>

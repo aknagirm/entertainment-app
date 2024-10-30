@@ -1,3 +1,5 @@
+export type VideoType = 'any' | 'episode' | 'movie'
+
 export interface VideoListDetails {
   etag: string
   kind: string

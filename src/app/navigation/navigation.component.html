@@ -7,22 +7,22 @@
   <div
     class="category-list d-flex justify-content-between flex-md-column align-items-center"
   >
-    <div>
+    <div class="category-item" (click)="loadData('any')">
       <img src="assets/icon-nav-home.svg" alt="" />
+      <small>All</small>
     </div>
-    <div>
+    <div class="category-item" (click)="loadData('episode')">
       <img src="assets/icon-nav-movies.svg" alt="" />
+      <small>Videos</small>
     </div>
-    <div>
+    <div class="category-item" (click)="loadData('movie')">
       <img src="assets/icon-nav-tv-series.svg" alt="" />
-    </div>
-    <div>
-      <img src="assets/icon-nav-bookmark.svg" alt="" />
+      <small>Movies</small>
     </div>
   </div>
-    <div class="avatar-image-container d-flex flex-md-column justify-content-end">
-      <div class="avatar-image-wrapper">
-        <img src="assets/image-avatar.png" alt="" />
-      </div>
+  <div class="avatar-image-container d-flex flex-md-column justify-content-end">
+    <div class="avatar-image-wrapper">
+      <img src="assets/image-avatar.png" alt="" />
+    </div>
   </div>
 </div>
