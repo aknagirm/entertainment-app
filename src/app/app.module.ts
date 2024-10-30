@@ -8,7 +8,8 @@ import { NavigationComponent } from './navigation/navigation.component'
 import { BodyComponent } from './body/body.component'
 import { HttpClientModule } from '@angular/common/http'
 import { StringTrimPipe } from './pipe/string-trim.pipe'
-import { ScrollingModule } from '@angular/cdk/scrolling'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { NgxYoutubePlayerModule } from '@hercilio/ngx-youtube-player'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling'
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ScrollingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxYoutubePlayerModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

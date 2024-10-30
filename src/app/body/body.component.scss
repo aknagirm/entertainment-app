@@ -7,18 +7,26 @@
     align-items: center;
     flex: 0 0 auto;
     input {
-      background-color: $dark-blue;
+      background-color: $semi-dark-blue;
       border: none;
       font-size: $font-size * 1.2;
       width: 100%;
       color: $white;
+      height: $navigation-category-icon-size * 2;
+      padding-left: 20px;
     }
     input:focus {
       outline: none;
     }
-    i {
-      font-size: $font-size * 1.2;
-      color: $white;
+    .search-icon {
+      display: block;
+      height: $navigation-category-icon-size * 2;
+      background-color: $semi-dark-blue;
+      cursor: pointer;
+      i {
+        font-size: $font-size * 1.2;
+        color: $greyish-blue;
+      }
     }
   }
   .video-list-wrapper {
@@ -40,7 +48,8 @@
   }
 }
 
-cdk-virtual-scroll-viewport {
-  height: 100%;
-  scrollbar-width: none;
+.error-container {
+  .info-text {
+    color: $greyish-blue;
+  }
 }

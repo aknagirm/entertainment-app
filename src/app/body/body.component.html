@@ -1,14 +1,26 @@
 <div class="body-container d-flex flex-column">
-  <div class="search-bar mb-3">
-    <i class="fa fa-search pe-3"></i>
-    <input type="text" placeholder="Search for Movies or TV series" />
+  <div class="search-bar mb-3 row gx-0">
+    <div class="col-11 col-lg-6">
+      <input
+        type="text"
+        placeholder="Search for Movies or TV series"
+        [(ngModel)]="searchInputValue"
+      />
+    </div>
+    <span
+      class="search-icon d-flex align-items-center justify-content-end col-1"
+      (click)="searchVideos()"
+    >
+      <i class="fa fa-search px-3"></i>
+    </span>
   </div>
-  <cdk-virtual-scroll-viewport
-    [itemSize]="itemSize"
-    (scrolledIndexChange)="scrolledIndexChange($event)"
+  <div
+    class="row justify-content-between video-list-wrapper"
+    (scroll)="onScroll($event)"
+    #scrollBoard
   >
-    <div class="row justify-content-between video-list-wrapper">
-      <ng-container *cdkVirtualFor="let video of videoList?.items">
+    <ng-container *ngIf="!errorMessage; else errorTab">
+      <ng-container *ngFor="let video of videoList; let i = index">
         <div class="col-lg-3 col-sm-6 card my-3">
           <div class="card-body p-0">
             <img [src]="video.snippet.thumbnails.medium.url" class="w-100" />
@@ -26,6 +38,19 @@
           </div>
         </div>
       </ng-container>
+    </ng-container>
+  </div>
+  <ng-template #errorTab>
+    <div
+      *ngIf="errorMessage === 'quotaOver'"
+      class="row align-items-center error-container"
+    >
+      <div class="text-center">
+        <h1 class="text-danger">It seem my free usage quota is over</h1>
+        <p class="info-text">Try after 00hrs IST tonight</p>
+        <h1>☹️</h1>
+        <h5 class="info-text">Sorry, I am really broke</h5>
+      </div>
     </div>
-  </cdk-virtual-scroll-viewport>
+  </ng-template>
 </div>

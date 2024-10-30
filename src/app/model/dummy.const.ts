@@ -845,39 +845,5 @@ export const dummyResult: VideoListDetails = {
         publishTime: '2024-10-27T03:30:29Z',
       },
     },
-    {
-      kind: 'youtube#searchResult',
-      etag: 'fsMkLPOggYh8XhdzwyKkrM8lFM4',
-      id: {
-        kind: 'youtube#video',
-        videoId: 'VncPd9IjY0Y',
-      },
-      snippet: {
-        publishedAt: '2024-10-27T04:30:22Z',
-        channelId: 'UCdce_0JccaDtpuv5x9Gjdyw',
-        title: 'Tom&amp;Jerry 🥰sangeethkumar #shorts #tomndjerry',
-        description: '',
-        thumbnails: {
-          default: {
-            url: 'https://i.ytimg.com/vi/VncPd9IjY0Y/default.jpg',
-            width: 120,
-            height: 90,
-          },
-          medium: {
-            url: 'https://i.ytimg.com/vi/VncPd9IjY0Y/mqdefault.jpg',
-            width: 320,
-            height: 180,
-          },
-          high: {
-            url: 'https://i.ytimg.com/vi/VncPd9IjY0Y/hqdefault.jpg',
-            width: 480,
-            height: 360,
-          },
-        },
-        channelTitle: 'Sangeeth Kumar',
-        liveBroadcastContent: 'none',
-        publishTime: '2024-10-27T04:30:22Z',
-      },
-    },
   ],
 }
