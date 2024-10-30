@@ -1,12 +1,34 @@
 export type VideoType = 'any' | 'episode' | 'movie'
 
+export interface VideoListContentDetails {
+  etag: string
+  kind: string
+  nextPageToken?: string
+  regionCode?: string
+  pageInfo?: PageInfo
+  items: VideoItemContentDetails[]
+}
+
+export interface VideoItemContentDetails extends VideoItemDetails {
+  duration?: string
+}
+
 export interface VideoListDetails {
   etag: string
   kind: string
-  nextPageToken: string
-  regionCode: string
-  pageInfo: PageInfo
+  nextPageToken?: string
+  regionCode?: string
+  pageInfo?: PageInfo
   items: VideoItemDetails[]
+}
+
+export interface ContentListDetails {
+  etag: string
+  kind: string
+  nextPageToken?: string
+  regionCode?: string
+  pageInfo?: PageInfo
+  items: ContentItemDetails[]
 }
 
 export interface VideoItemDetails {
@@ -14,6 +36,13 @@ export interface VideoItemDetails {
   kind: string
   snippet: Snippet
   id: Id
+}
+
+export interface ContentItemDetails {
+  etag: string
+  kind: string
+  contentDetails: ContentDetails
+  id: string
 }
 
 export interface Id {
@@ -31,6 +60,15 @@ export interface Snippet {
   publishedAt: string
   thumbnails: ThumbnailsTypes
   title: string
+}
+
+export interface ContentDetails {
+  duration: string
+  dimension: string
+  definition: string
+  caption: string
+  licensedContent: boolean
+  projection: string
 }
 
 export interface ThumbnailsTypes {

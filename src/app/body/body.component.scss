@@ -49,6 +49,11 @@
       background-color: $dark-blue;
       color: $white;
       cursor: pointer;
+      .card-body {
+        .duration {
+          background-color: $dark-blue;
+        }
+      }
       .card-footer {
         p {
           font-size: $font-size * 1.1;

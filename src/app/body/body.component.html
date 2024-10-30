@@ -20,36 +20,40 @@
     (scroll)="onScroll($event)"
   >
     <div #videoWindow></div>
-    <div
-      *ngIf="selectedVideo"
-      class="row align-items-center video-display-wrapper"
-    >
-      <div class="col-lg-8">
-        <iframe
-          [src]="selectedVideoUrl"
-          height="420"
-          style="width: 100%"
-          frameborder="0"
-        >
-        </iframe>
-      </div>
-      <div class="col-lg-4 video-description-tile">
-        <h3>{{ selectedVideo.snippet.title }}</h3>
-        <hr />
-        <h5>
-          <strong>Channel:</strong> {{ selectedVideo.snippet.channelTitle }}
-        </h5>
-        <p>
-          <strong>Published:</strong>
-          {{ selectedVideo.snippet.publishedAt | date: 'medium' }}
-        </p>
-        <p>{{ selectedVideo.snippet.description }}</p>
-      </div>
-    </div>
     <ng-container *ngIf="!errorMessage; else errorTab">
+      <div
+        *ngIf="selectedVideo"
+        class="row align-items-center video-display-wrapper"
+      >
+        <div class="col-lg-8">
+          <iframe
+            [src]="selectedVideoUrl"
+            height="420"
+            style="width: 100%"
+            frameborder="0"
+          >
+          </iframe>
+        </div>
+        <div class="col-lg-4 video-description-tile">
+          <h3>{{ selectedVideo.snippet.title }}</h3>
+          <hr />
+          <h5>
+            <strong>Channel:</strong> {{ selectedVideo.snippet.channelTitle }}
+          </h5>
+          <p>
+            <strong>Published:</strong>
+            {{ selectedVideo.snippet.publishedAt | date: 'medium' }}
+          </p>
+          <p>{{ selectedVideo.snippet.description }}</p>
+        </div>
+      </div>
+
       <ng-container *ngFor="let video of videoList; let i = index">
         <div class="col-lg-3 col-sm-6 card my-3" (click)="playVideo(video)">
           <div class="card-body p-0">
+            <small class="duration d-block position-absolute p-2 shadow">{{
+              video.duration
+            }}</small>
             <img [src]="video.snippet.thumbnails.medium.url" class="w-100" />
           </div>
           <div class="card-footer px-0 py-2">
@@ -74,7 +78,7 @@
     >
       <div class="text-center">
         <h1 class="text-danger">It seem my free usage quota is over</h1>
-        <p class="info-text">Try after 00hrs IST tonight</p>
+        <p class="info-text">Try after sometime</p>
         <h1>☹️</h1>
         <h5 class="info-text">Sorry, I am really broke</h5>
       </div>

@@ -7,7 +7,9 @@ import {
 } from '@angular/core'
 import { HttpService } from '../http.service'
 import {
+  VideoItemContentDetails,
   VideoItemDetails,
+  VideoListContentDetails,
   VideoListDetails,
   VideoType,
 } from '../model/videoDetails.interface'
@@ -25,7 +27,7 @@ export class BodyComponent implements OnInit {
   @ViewChild('videoWindow', { static: true }) videoWindow!: ElementRef
 
   videoListDetails: VideoListDetails | undefined
-  videoList: VideoItemDetails[] = []
+  videoList: VideoItemContentDetails[] = []
   nextPageToken: string = ''
   errorMessage: string = ''
   prevDataLoadInProgress: boolean = false
@@ -62,10 +64,10 @@ export class BodyComponent implements OnInit {
   }
 
   loadData(): void {
-    this.videoListDetails = dummyResult
+    /* this.videoListDetails = dummyResult
     this.videoList.push(...dummyResult.items)
-    console.log(this.videoList)
-    /* this.httpService
+    console.log(this.videoList) */
+    this.httpService
       .searchVideo(
         this.videoLoadType ?? 'any',
         this.searchInputValue ?? '',
@@ -73,10 +75,11 @@ export class BodyComponent implements OnInit {
       )
       .pipe(take(1))
       .subscribe({
-        next: (data: VideoListDetails) => {
+        next: (data: VideoListContentDetails) => {
+          console.log(data)
           this.videoListDetails = data
           this.videoList.push(...data.items)
-          this.nextPageToken = data.nextPageToken
+          this.nextPageToken = data.nextPageToken ?? ''
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 403) {
@@ -84,7 +87,7 @@ export class BodyComponent implements OnInit {
           }
           console.log(this.errorMessage)
         },
-      }) */
+      })
   }
 
   onScroll(event: Event) {
