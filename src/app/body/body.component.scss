@@ -33,6 +33,18 @@
     flex: 1 0 0;
     overflow-y: auto;
     scrollbar-width: none;
+    .video-display-wrapper {
+      .video-description-tile {
+        height: 420px;
+        color: $white;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        hr {
+          border-color: $white;
+        }
+      }
+    }
+
     .card {
       background-color: $dark-blue;
       color: $white;

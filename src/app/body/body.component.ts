@@ -1,13 +1,8 @@
 import {
-  AfterViewInit,
-  ChangeDetectorRef,
   Component,
   ElementRef,
-  HostListener,
-  Input,
   OnChanges,
   OnInit,
-  SimpleChanges,
   ViewChild,
 } from '@angular/core'
 import { HttpService } from '../http.service'
@@ -17,47 +12,53 @@ import {
   VideoType,
 } from '../model/videoDetails.interface'
 import { dummyResult } from '../model/dummy.const'
-import { debounceTime, fromEvent, take } from 'rxjs'
+import { mergeMap, of, take } from 'rxjs'
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'
 import { HttpErrorResponse } from '@angular/common/http'
-import { FormControl } from '@angular/forms'
-import {
-  DomSanitizer,
-  SafeResourceUrl,
-  SafeUrl,
-} from '@angular/platform-browser'
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.scss'],
 })
-export class BodyComponent implements OnInit, OnChanges {
+export class BodyComponent implements OnInit {
+  @ViewChild('videoWindow', { static: true }) videoWindow!: ElementRef
+
   videoListDetails: VideoListDetails | undefined
   videoList: VideoItemDetails[] = []
   nextPageToken: string = ''
   errorMessage: string = ''
   prevDataLoadInProgress: boolean = false
   searchInputValue: string | undefined
+  searchInputValueChanged: boolean = false
 
   videoWindowHeight = 350
   videoWindowWidth = 550
-  selectedVideoId!: SafeResourceUrl
+  selectedVideoUrl!: SafeResourceUrl
 
-  @Input() videoLoadType: VideoType | undefined = 'any'
+  videoLoadType!: VideoType
+  selectedVideo: VideoItemDetails | undefined
 
   constructor(
     private httpService: HttpService,
-    private cdr: ChangeDetectorRef,
     private sanitizer: DomSanitizer
   ) {}
 
-  ngOnChanges(): void {
-    this.resetSearch()
-    this.loadData()
-  }
-
   ngOnInit(): void {
-    this.loadData()
+    this.httpService
+      .getVideoType()
+      .pipe(
+        mergeMap((videoLoadType) => {
+          this.resetSearch()
+          this.videoLoadType = videoLoadType
+          this.searchInputValue = this.searchInputValueChanged
+            ? this.searchInputValue
+            : undefined
+          this.searchInputValueChanged = false
+          return of(this.loadData())
+        })
+      )
+      .subscribe()
   }
 
   loadData(): void {
@@ -99,23 +100,24 @@ export class BodyComponent implements OnInit, OnChanges {
   }
 
   searchVideos() {
-    this.resetSearch(false)
-    this.loadData()
-    console.log(this.searchInputValue)
+    this.resetSearch()
+    this.searchInputValueChanged = true
+    this.httpService.setVideoType('any')
   }
 
   playVideo(video: VideoItemDetails) {
-    console.log(video.id)
-    this.selectedVideoId = this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://www.youtube.com/embed/${video.id.videoId}?autoplay=1&mute=1&enablejsapi=1`
+    this.selectedVideo = video
+    this.selectedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.youtube.com/embed/${video.id.videoId}?autoplay=1&mute=1&enablejsapi=1&fs=0`
     )
+    this.videoWindow.nativeElement.scrollIntoView({ behavior: 'smooth' })
   }
 
-  resetSearch(resetSearch: boolean = true): void {
+  resetSearch(): void {
     this.videoList = []
     this.videoListDetails = undefined
     this.nextPageToken = ''
     this.errorMessage = ''
-    resetSearch ? (this.searchInputValue = undefined) : null
+    this.selectedVideo = undefined
   }
 }

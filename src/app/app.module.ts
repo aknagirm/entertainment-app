@@ -9,7 +9,6 @@ import { BodyComponent } from './body/body.component'
 import { HttpClientModule } from '@angular/common/http'
 import { StringTrimPipe } from './pipe/string-trim.pipe'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { NgxYoutubePlayerModule } from '@hercilio/ngx-youtube-player'
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { NgxYoutubePlayerModule } from '@hercilio/ngx-youtube-player'
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxYoutubePlayerModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

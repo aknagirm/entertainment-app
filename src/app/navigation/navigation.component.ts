@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { VideoType } from '../model/videoDetails.interface'
+import { HttpService } from '../http.service'
 
 @Component({
   selector: 'app-navigation',
@@ -7,14 +8,17 @@ import { VideoType } from '../model/videoDetails.interface'
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent implements OnInit {
-  @Output() videoLoadType: EventEmitter<VideoType> =
-    new EventEmitter<VideoType>()
+  videoType!: VideoType
 
-  constructor() {}
+  constructor(public httpService: HttpService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.httpService.getVideoType().subscribe({
+      next: (data) => (this.videoType = data),
+    })
+  }
 
   loadData(videoType: VideoType) {
-    this.videoLoadType.emit(videoType)
+    this.httpService.setVideoType(videoType)
   }
 }

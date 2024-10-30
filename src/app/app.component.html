@@ -1,11 +1,10 @@
 <div class="container-fuild">
   <div class="row justify-content-between">
     <div class="col-md-1">
-      <app-navigation (videoLoadType)="videoLoadType = $event"></app-navigation>
+      <app-navigation></app-navigation>
     </div>
-    <!--  <p style="color: red">{{ videoLoadType }}</p> -->
     <div class="col-md-11 px-4">
-      <app-body [videoLoadType]="videoLoadType"></app-body>
+      <app-body></app-body>
     </div>
   </div>
 </div>

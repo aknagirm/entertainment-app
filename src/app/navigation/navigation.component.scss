@@ -41,6 +41,11 @@
   }
 }
 
+.text-danger {
+  font-weight: 900;
+  font-size: $font-size;
+}
+
 @media screen and (min-width: 600px) {
   .navigation-container {
     height: calc(100vh - ($global-gap * 2));

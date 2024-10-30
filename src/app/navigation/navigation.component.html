@@ -9,15 +9,17 @@
   >
     <div class="category-item" (click)="loadData('any')">
       <img src="assets/icon-nav-home.svg" alt="" />
-      <small>All</small>
+      <small [ngClass]="{ 'text-danger': videoType === 'any' }">All</small>
     </div>
     <div class="category-item" (click)="loadData('episode')">
       <img src="assets/icon-nav-movies.svg" alt="" />
-      <small>Videos</small>
+      <small [ngClass]="{ 'text-danger': videoType === 'episode' }"
+        >Videos</small
+      >
     </div>
     <div class="category-item" (click)="loadData('movie')">
       <img src="assets/icon-nav-tv-series.svg" alt="" />
-      <small>Movies</small>
+      <small [ngClass]="{ 'text-danger': videoType === 'movie' }">Movies</small>
     </div>
   </div>
   <div class="avatar-image-container d-flex flex-md-column justify-content-end">

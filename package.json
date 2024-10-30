@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "@fortawesome/angular-fontawesome": "^0.11.1",
-    "@hercilio/ngx-youtube-player": "^14.2.6",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
