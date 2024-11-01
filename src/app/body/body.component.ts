@@ -67,8 +67,7 @@ export class BodyComponent implements OnInit {
 
   loadData(): void {
     /* this.videoListDetails = dummyResult
-    this.videoList.push(...dummyResult.items)
-    console.log(this.videoList) */
+    this.videoList.push(...dummyResult.items) */
     this.httpService
       .searchVideo(
         this.videoLoadType ?? 'any',
