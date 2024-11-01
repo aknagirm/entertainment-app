@@ -66,10 +66,10 @@ export class BodyComponent implements OnInit {
   }
 
   loadData(): void {
-    this.videoListDetails = dummyResult
+    /* this.videoListDetails = dummyResult
     this.videoList.push(...dummyResult.items)
-    console.log(this.videoList)
-    /* this.httpService
+    console.log(this.videoList) */
+    this.httpService
       .searchVideo(
         this.videoLoadType ?? 'any',
         this.searchInputValue ?? '',
@@ -78,7 +78,6 @@ export class BodyComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (data: VideoListContentDetails) => {
-          console.log(data)
           this.videoListDetails = data
           this.videoList.push(...data.items)
           this.nextPageToken = data.nextPageToken ?? ''
@@ -89,7 +88,7 @@ export class BodyComponent implements OnInit {
           }
           console.log(this.errorMessage)
         },
-      }) */
+      })
   }
 
   onScroll(event: Event) {
