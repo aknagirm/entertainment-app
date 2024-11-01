@@ -6,6 +6,7 @@ import {
   map,
   Observable,
   of,
+  Subject,
   switchMap,
   tap,
 } from 'rxjs'
@@ -26,6 +27,7 @@ import {
 export class HttpService {
   nextPageToken: string = ''
   videoType: BehaviorSubject<VideoType> = new BehaviorSubject<VideoType>('any')
+  goToTop: Subject<undefined> = new Subject()
 
   constructor(private http: HttpClient) {}
 
@@ -35,6 +37,14 @@ export class HttpService {
 
   setVideoType(videoType: VideoType): void {
     this.videoType.next(videoType)
+  }
+
+  getGoToTop(): Observable<undefined> {
+    return this.goToTop.asObservable()
+  }
+
+  setGoToTop(event: undefined): void {
+    this.goToTop.next(event)
   }
 
   searchVideo(

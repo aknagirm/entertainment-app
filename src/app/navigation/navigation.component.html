@@ -1,7 +1,7 @@
 <div
   class="navigation-container d-flex flex-md-column justify-content-between align-items-center p-4"
 >
-  <div class="logo-container">
+  <div class="logo-container" (click)="goToTopCall()">
     <img src="assets/logo.svg" alt="" />
   </div>
   <div
@@ -12,13 +12,13 @@
       <small [ngClass]="{ 'text-danger': videoType === 'any' }">All</small>
     </div>
     <div class="category-item" (click)="loadData('episode')">
-      <img src="assets/icon-nav-movies.svg" alt="" />
+      <img src="assets/icon-category-movie.svg" alt="" />
       <small [ngClass]="{ 'text-danger': videoType === 'episode' }"
         >Videos</small
       >
     </div>
     <div class="category-item" (click)="loadData('movie')">
-      <img src="assets/icon-nav-tv-series.svg" alt="" />
+      <img src="assets/icon-category-tv.svg" alt="" />
       <small [ngClass]="{ 'text-danger': videoType === 'movie' }">Movies</small>
     </div>
   </div>

@@ -5,6 +5,7 @@
         type="text"
         placeholder="Search for Movies or TV series"
         [(ngModel)]="searchInputValue"
+        (keyup.enter)="searchVideos()"
       />
     </div>
     <span

@@ -47,6 +47,8 @@ export class BodyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.checkForGoToTopCall()
+
     this.httpService
       .getVideoType()
       .pipe(
@@ -64,10 +66,10 @@ export class BodyComponent implements OnInit {
   }
 
   loadData(): void {
-    /* this.videoListDetails = dummyResult
+    this.videoListDetails = dummyResult
     this.videoList.push(...dummyResult.items)
-    console.log(this.videoList) */
-    this.httpService
+    console.log(this.videoList)
+    /* this.httpService
       .searchVideo(
         this.videoLoadType ?? 'any',
         this.searchInputValue ?? '',
@@ -87,7 +89,7 @@ export class BodyComponent implements OnInit {
           }
           console.log(this.errorMessage)
         },
-      })
+      }) */
   }
 
   onScroll(event: Event) {
@@ -122,5 +124,13 @@ export class BodyComponent implements OnInit {
     this.nextPageToken = ''
     this.errorMessage = ''
     this.selectedVideo = undefined
+  }
+
+  checkForGoToTopCall(): void {
+    this.httpService
+      .getGoToTop()
+      .subscribe(() =>
+        this.videoWindow.nativeElement.scrollIntoView({ behavior: 'smooth' })
+      )
   }
 }

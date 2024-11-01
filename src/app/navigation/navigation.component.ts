@@ -21,4 +21,8 @@ export class NavigationComponent implements OnInit {
   loadData(videoType: VideoType) {
     this.httpService.setVideoType(videoType)
   }
+
+  goToTopCall() {
+    this.httpService.setGoToTop(undefined)
+  }
 }
