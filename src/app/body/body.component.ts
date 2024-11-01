@@ -85,7 +85,7 @@ export class BodyComponent implements OnInit {
           if (error.status === 403) {
             this.errorMessage = 'quotaOver'
           }
-          console.log(this.errorMessage)
+          console.error(this.errorMessage)
         },
       })
   }
