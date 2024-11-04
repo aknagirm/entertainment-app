@@ -20,6 +20,7 @@
     class="row justify-content-between video-list-wrapper"
     (scroll)="onScroll($event)"
   >
+    <div #videoWindow></div>
     <ng-container *ngIf="!errorMessage; else errorTab">
       <div
         *ngIf="selectedVideo"

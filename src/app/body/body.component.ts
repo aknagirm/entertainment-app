@@ -113,7 +113,7 @@ export class BodyComponent implements OnInit {
     this.selectedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       `https://www.youtube.com/embed/${video.id.videoId}?autoplay=1&mute=1&enablejsapi=1`
     )
-    this.videoWindow.nativeElement.scrollIntoView({ behavior: 'smooth' })
+    this.httpService.setGoToTop(undefined)
   }
 
   resetSearch(): void {
@@ -125,10 +125,11 @@ export class BodyComponent implements OnInit {
   }
 
   checkForGoToTopCall(): void {
-    this.httpService
-      .getGoToTop()
-      .subscribe(() =>
-        this.videoWindow.nativeElement.scrollIntoView({ behavior: 'smooth' })
-      )
+    this.httpService.getGoToTop().subscribe(() => {
+      this.videoWindow.nativeElement.scrollIntoView({
+        block: 'center',
+        behavior: 'smooth',
+      })
+    })
   }
 }
