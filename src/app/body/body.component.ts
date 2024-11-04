@@ -111,7 +111,7 @@ export class BodyComponent implements OnInit {
   playVideo(video: VideoItemDetails) {
     this.selectedVideo = video
     this.selectedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://www.youtube.com/embed/${video.id.videoId}?autoplay=1&mute=1&enablejsapi=1&fs=0`
+      `https://www.youtube.com/embed/${video.id.videoId}?autoplay=1&mute=1&enablejsapi=1`
     )
     this.videoWindow.nativeElement.scrollIntoView({ behavior: 'smooth' })
   }

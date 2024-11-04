@@ -25,4 +25,8 @@ export class NavigationComponent implements OnInit {
   goToTopCall() {
     this.httpService.setGoToTop(undefined)
   }
+
+  goToProfile(): void {
+    window.open('https://aknagirm.github.io/portfolio/', '_blank')
+  }
 }
