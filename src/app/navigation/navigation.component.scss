@@ -3,11 +3,11 @@
 .navigation-container {
   min-width: calc($navigation-category-icon-size * 2);
   min-height: calc($navigation-category-icon-size * 2);
-  background-color: $semi-dark-blue;
-  border-radius: calc($navigation-category-icon-size/2);
+  //background-color: $semi-dark-blue;
+  // border-radius: calc($navigation-category-icon-size/2);
 
   .logo-container {
-    flex: 0 0 30%;
+    flex: 0 0 25%;
     cursor: pointer;
   }
 
@@ -27,7 +27,7 @@
   }
 
   .avatar-image-container {
-    flex: 0 0 30%;
+    flex: 0 0 25%;
     .avatar-image-wrapper {
       width: $navigation-category-icon-size * 2;
       height: $navigation-category-icon-size * 2;

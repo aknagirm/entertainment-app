@@ -66,9 +66,9 @@ export class BodyComponent implements OnInit {
   }
 
   loadData(): void {
-    /* this.videoListDetails = dummyResult
-    this.videoList.push(...dummyResult.items) */
-    this.httpService
+    this.videoListDetails = dummyResult
+    this.videoList.push(...dummyResult.items)
+    /* this.httpService
       .searchVideo(
         this.videoLoadType ?? 'any',
         this.searchInputValue ?? '',
@@ -87,7 +87,7 @@ export class BodyComponent implements OnInit {
           }
           console.error(this.errorMessage)
         },
-      })
+      }) */
   }
 
   onScroll(event: Event) {

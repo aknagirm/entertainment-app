@@ -1,5 +1,5 @@
 <div class="body-container d-flex flex-column">
-  <div class="search-bar mb-3 row gx-0">
+  <div class="search-bar my-3 row gx-0">
     <div class="col-11 col-lg-6">
       <input
         type="text"
@@ -20,16 +20,14 @@
     class="row justify-content-between video-list-wrapper"
     (scroll)="onScroll($event)"
   >
-    <div #videoWindow></div>
     <ng-container *ngIf="!errorMessage; else errorTab">
       <div
         *ngIf="selectedVideo"
-        class="row align-items-center video-display-wrapper"
+        class="row align-items-center video-display-wrapper px-0"
       >
-        <div class="col-lg-8">
+        <div class="col-lg-8 px-0">
           <iframe
             [src]="selectedVideoUrl"
-            height="420"
             style="width: 100%"
             allowfullscreen
             frameborder="0"
@@ -59,7 +57,7 @@
             >
             <img [src]="video.snippet.thumbnails.medium.url" class="w-100" />
           </div>
-          <div class="card-footer px-0 py-2">
+          <div class="card-footer px-md-0 px-1 py-2">
             <p class="m-0">{{ video.snippet.title | stringTrim }}</p>
             <hr class="m-1" />
             <small class="m-0"

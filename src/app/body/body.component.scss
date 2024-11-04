@@ -1,7 +1,7 @@
 @import '../../assets/variable';
 
 .body-container {
-  height: calc(100vh - ($global-gap * 2));
+  height: 100vh;
   .search-bar {
     display: flex;
     align-items: center;
@@ -76,3 +76,13 @@
   width: 500px !important;
 }
  */
+
+iframe {
+  height: 370px;
+}
+
+@media screen and (min-width: 786px) {
+  iframe {
+    height: 420px;
+  }
+}
