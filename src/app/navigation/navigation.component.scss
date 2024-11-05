@@ -21,6 +21,7 @@
       line-height: $font-size * 2;
       background-color: $dark-blue;
       border: none;
+      border-radius: 2px;
       cursor: pointer;
       img {
         width: $navigation-category-icon-size * 0.7;
@@ -50,7 +51,7 @@
 }
 
 .btn-selected {
-  background-color: $semi-dark-blue !important;
+  background-color: $greyish-dark-blue !important;
 }
 
 @media screen and (min-width: 600px) {
