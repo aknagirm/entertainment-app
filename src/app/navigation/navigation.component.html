@@ -7,20 +7,32 @@
   <div
     class="category-list d-flex justify-content-between flex-md-column align-items-center"
   >
-    <div class="category-item" (click)="loadData('any')">
+    <button
+      class="category-item p-3"
+      (click)="loadData('any')"
+      [ngClass]="{ 'btn-selected': videoType === 'any' }"
+    >
       <img src="assets/icon-nav-home.svg" alt="" />
-      <small [ngClass]="{ 'text-danger': videoType === 'any' }">All</small>
-    </div>
-    <div class="category-item" (click)="loadData('episode')">
+      <!-- <small [ngClass]="{ 'text-danger': videoType === 'any' }">All</small> -->
+    </button>
+    <button
+      class="category-item p-3"
+      (click)="loadData('episode')"
+      [ngClass]="{ 'btn-selected': videoType === 'episode' }"
+    >
       <img src="assets/icon-category-movie.svg" alt="" />
-      <small [ngClass]="{ 'text-danger': videoType === 'episode' }"
+      <!--  <small [ngClass]="{ 'text-danger': videoType === 'episode' }"
         >Videos</small
-      >
-    </div>
-    <div class="category-item" (click)="loadData('movie')">
+      > -->
+    </button>
+    <button
+      class="category-item p-3"
+      (click)="loadData('movie')"
+      [ngClass]="{ 'btn-selected': videoType === 'movie' }"
+    >
       <img src="assets/icon-category-tv.svg" alt="" />
-      <small [ngClass]="{ 'text-danger': videoType === 'movie' }">Movies</small>
-    </div>
+      <!-- <small [ngClass]="{ 'text-danger': videoType === 'movie' }">Movies</small> -->
+    </button>
   </div>
   <div class="avatar-image-container d-flex flex-md-column justify-content-end">
     <div class="avatar-image-wrapper" (click)="goToProfile()">

@@ -17,14 +17,14 @@
   </div>
 
   <div
-    class="row justify-content-between video-list-wrapper"
+    class="row justify-content-between video-list-wrapper gx-0"
     (scroll)="onScroll($event)"
   >
     <div #videoWindow></div>
     <ng-container *ngIf="!errorMessage; else errorTab">
       <div
         *ngIf="selectedVideo"
-        class="row align-items-center video-display-wrapper px-0"
+        class="row align-items-center video-display-wrapper px-0 gx-0"
       >
         <div class="col-lg-8 px-0">
           <iframe
@@ -35,7 +35,7 @@
           >
           </iframe>
         </div>
-        <div class="col-lg-4 video-description-tile">
+        <div class="col-lg-4 video-description-tile px-4">
           <h3>{{ selectedVideo.snippet.title }}</h3>
           <hr />
           <h5>
@@ -51,14 +51,14 @@
 
       <ng-container *ngFor="let video of videoList; let i = index">
         <div class="col-lg-3 col-sm-6 card my-3" (click)="playVideo(video)">
-          <div class="card-body p-0">
+          <div class="card-body px-md-1 py-2 px-0">
             <small
               class="duration d-block position-absolute p-2 shadow text-danger"
               >{{ video.duration }}</small
             >
             <img [src]="video.snippet.thumbnails.medium.url" class="w-100" />
           </div>
-          <div class="card-footer px-md-0 px-1 py-2">
+          <div class="card-footer px-1 py-2">
             <p class="m-0">{{ video.snippet.title | stringTrim }}</p>
             <hr class="m-1" />
             <small class="m-0"

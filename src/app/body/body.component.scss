@@ -35,7 +35,7 @@
     scrollbar-width: none;
     .video-display-wrapper {
       .video-description-tile {
-        height: 420px;
+        height: fit-content;
         color: $white;
         overflow-y: auto;
         scrollbar-width: thin;
@@ -83,6 +83,9 @@ iframe {
 
 @media screen and (min-width: 786px) {
   iframe {
+    height: 420px;
+  }
+  .video-description-tile {
     height: 420px;
   }
 }

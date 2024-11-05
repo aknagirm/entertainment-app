@@ -19,9 +19,11 @@
       flex-direction: column;
       align-items: center;
       line-height: $font-size * 2;
+      background-color: $dark-blue;
+      border: none;
       cursor: pointer;
       img {
-        width: $navigation-category-icon-size;
+        width: $navigation-category-icon-size * 0.7;
       }
     }
   }
@@ -45,6 +47,10 @@
 
 .text-danger {
   font-weight: 900;
+}
+
+.btn-selected {
+  background-color: $semi-dark-blue !important;
 }
 
 @media screen and (min-width: 600px) {
