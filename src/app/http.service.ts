@@ -27,6 +27,7 @@ import {
 export class HttpService {
   nextPageToken: string = ''
   videoType: BehaviorSubject<VideoType> = new BehaviorSubject<VideoType>('any')
+  isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   goToTop: Subject<undefined> = new Subject()
 
   constructor(private http: HttpClient) {}
@@ -45,6 +46,14 @@ export class HttpService {
 
   setGoToTop(event: undefined): void {
     this.goToTop.next(event)
+  }
+
+  getIsLoading(): Observable<boolean> {
+    return this.isLoading.asObservable()
+  }
+
+  setIsLoading(event: boolean): void {
+    this.isLoading.next(event)
   }
 
   searchVideo(

@@ -48,7 +48,6 @@ export class BodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkForGoToTopCall()
-
     this.httpService
       .getVideoType()
       .pipe(
@@ -68,6 +67,7 @@ export class BodyComponent implements OnInit {
   loadData(): void {
     /* this.videoListDetails = dummyResult
     this.videoList.push(...dummyResult.items) */
+    this.httpService.setIsLoading(true)
     this.httpService
       .searchVideo(
         this.videoLoadType ?? 'any',
@@ -87,6 +87,7 @@ export class BodyComponent implements OnInit {
           }
           console.error(this.errorMessage)
         },
+        complete: () => this.httpService.setIsLoading(false),
       })
   }
 
